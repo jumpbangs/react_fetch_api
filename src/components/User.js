@@ -9,13 +9,19 @@ class User extends Component {
         return(
             <div className='pt-3'>
                 <div className='card' onClick={this.props.showModal.bind(this, user.id)}>
-                    <div className='card-header'>
-                        {user.name}
-                    </div>
-                    <div className='card-body' >
-                        <div className='card-title'> Username: {user.username}</div>
-                        <div className='card-text'> Email: {user.email}</div>
-                    </div>
+                        <div className='container p-3'>
+                            <div className='row'>
+                                <div className='col-sm-3'>
+                                    <img src={user.profileImage} alt="profileImage.jpg" className='rounded-circle img-fluid'/>
+                                </div>
+                                <div className='col-sm-9'>
+                                    <div className='card-body' >
+                                        <div className='card-title'> Name : {user.firstName} {user.lastName}</div>
+                                        <div className='card-text'> Email: {user.email}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                 </div>
                 <UserModal userDetails ={user} showModal ={this.props.showModal} modalState={user.show} closeModal={this.props.closeModal}/>
             </div>

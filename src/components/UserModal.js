@@ -9,27 +9,31 @@ import ModalTitle from "react-bootstrap/ModalTitle";
 
 class UserModal extends Component {
     render() {
-        let {show, id, name, phone, website, address, company} = this.props.userDetails;
-        let street = address['street'];
+        let {show, id, firstName, lastName, phone, address, email, profileImage} = this.props.userDetails;
+        let state = address['state'];
         let city = address['city'];
-        let zipcode = address['zipcode'];
-        let companyName = company['name'];
+        let country = address['country'];
+        let streetAddress = address['streetAddress'];
 
+        console.log(this.props.userDetails)
         if(!show){
             return null;
         }
         return (
             <Modal show={show}>
                 <ModalHeader>
-                    <ModalTitle>{name}</ModalTitle>
+                    <ModalTitle>{firstName}{lastName}</ModalTitle>
                 </ModalHeader>
                 <ModalBody>
                     <ul className='userList'>
+                        <div>
+                            <img src={profileImage} alt="profileImage" className='rounded-circle'/>
+                        </div>
                         <li>Contact  : {phone}</li>
-                        <li>Address  : {street},{city}</li>
-                        <li>Zip Code : {zipcode}</li>
-                        <li>Company  : {companyName}</li>
-                        <li>Website  : {website}</li>
+                        <li>Address  : {streetAddress}</li>
+                        <li>City     : {city}</li>
+                        <li>State    : {state}</li>
+                        <li>Country  : {country}</li>
                     </ul>
                 </ModalBody>
                 <ModalFooter>
