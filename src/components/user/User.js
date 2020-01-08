@@ -8,7 +8,7 @@ class User extends Component {
         const user = this.props.userDetails;
         return(
             <div className='pt-3'>
-                <div className='card' onClick={this.props.showModal.bind(this, user.id)}>
+                <div className='card cardUser' onClick={this.props.showModal.bind(this, user.id)}>
                         <div className='container p-3'>
                             <div className='row'>
                                 <div className='col-sm-3'>

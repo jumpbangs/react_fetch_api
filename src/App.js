@@ -3,7 +3,8 @@ import './styles/reset.css';
 import './styles/App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import Contacts from "./components/Contacts";
+import Contacts from "./components/user/Contacts";
+import Header from "./components/layout/Header";
 
 
 class App extends Component {
@@ -53,7 +54,11 @@ class App extends Component {
 
   render() {
     return(
-        <Contacts contacts = {this.state} modalState = {this.showModal}  closeModal = {this.closeModal} />
+        <div>
+            <Header />
+            <Contacts contacts = {this.state} modalState = {this.showModal}  closeModal = {this.closeModal} />
+        </div>
+
     )
   }
 }
