@@ -14,12 +14,11 @@ class UserModal extends Component {
         let country = address['country'];
         let streetAddress = address['streetAddress'];
 
-        console.log(this.props.userDetails)
         if(!show){
             return null;
         }
         return (
-            <Modal show={show}>
+            <Modal show={show} onHide={this.props.closeModal.bind(this, this.props.userDetails.id)}>
                 <ModalHeader>
                     <div className='profileImage'>
                         <img src={profileImage} alt="profileImage" className='rounded-circle'/>
