@@ -11,10 +11,11 @@ const App = () => {
   const [users, setUsers] = React.useState([]);
 
   useEffect(() => {
-    fetch('/data/userData.json')
+    fetch('/data/MOCK_DATA.json')
       .then(res => res.json())
       .then((data) => {
-        const updated = data.map((user) => ({ ...user, show: false }));
+        console.log(data);
+        const updated = data.map((user) => ({ ...user, show: false, profileImage: '../images/profile-images.webp' }));
         setUsers(updated);
       })
       .catch(console.error);
@@ -26,31 +27,11 @@ const App = () => {
     ));
   };
 
-
   const closeModal = (id) => {
-    // console.log(id);
     setUsers(users.map(user =>
       user.id === id ? { ...user, show: false } : user
     ));
   };
-
-  // componentDidMount() {
-  //   fetch("https://mock-io.herokuapp.com/users")
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       data.map((value) => {
-  //         value.show = false;
-  //         return value;
-  //       });
-  //       this.setState({ users: data });
-  //     })
-  //     .catch(console.log);
-  // }
-
-
-
-  console.log(users);
-
 
     return (
       <div>

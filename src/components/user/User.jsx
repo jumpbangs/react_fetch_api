@@ -1,9 +1,6 @@
-import React, { Component } from "react";
-
 import UserModal from "./UserModal";
 
 const User = (props) => {
-  console.log('User Props', props);
   const user = props.userDetails;
     return (
       <div className="pt-3">
@@ -17,7 +14,7 @@ const User = (props) => {
                 <img
                   src={user.profileImage}
                   alt="profileImage.jpg"
-                  className="rounded-circle img-fluid"
+                  className="rounded-circle img-thumbnail w-50"
                 />
               </div>
               <div className="col-sm-9">
