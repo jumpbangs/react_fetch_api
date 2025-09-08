@@ -18,7 +18,13 @@
 .profileImage {
   display: block;
   margin: 0 auto;
+  width: 80%;      /* take 80% of modal width */
+  height: auto;    /* maintain aspect ratio */
+  max-width: 100px; /* optional max size */
+  border-radius: 50%; /* optional circular shape */
+  object-fit: cover;  /* crops to fill box if needed */
 }
+
 
 .userList li{
   padding: 5px;

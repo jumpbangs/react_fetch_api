@@ -2,22 +2,21 @@ import React, { Component } from "react";
 
 import User from "./User";
 
-class Contacts extends Component {
-  render() {
+const Contacts = ({contacts, closeModal, modalState}) => {
+
     return (
       <div className="container">
-        {this.props.contacts.users.map((user) => (
+        {contacts.map((user) => (
           <User
             key={user.id}
             userDetails={user}
-            showModal={this.props.modalState}
+            showModal={modalState}
             modalState={user.show}
-            closeModal={this.props.closeModal}
+            closeModal={closeModal}
           />
         ))}
       </div>
     );
-  }
 }
 
 export default Contacts;

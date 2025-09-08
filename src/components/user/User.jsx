@@ -2,14 +2,14 @@ import React, { Component } from "react";
 
 import UserModal from "./UserModal";
 
-class User extends Component {
-  render() {
-    const user = this.props.userDetails;
+const User = (props) => {
+  console.log('User Props', props);
+  const user = props.userDetails;
     return (
       <div className="pt-3">
         <div
           className="card cardUser"
-          onClick={this.props.showModal.bind(this, user.id)}
+          onClick={props.showModal.bind(this, user.id)}
         >
           <div className="container p-3">
             <div className="row">
@@ -23,7 +23,6 @@ class User extends Component {
               <div className="col-sm-9">
                 <div className="card-body">
                   <div className="card-title">
-                    {" "}
                     Name : {user.firstName} {user.lastName}
                   </div>
                   <div className="card-text"> Email: {user.email}</div>
@@ -34,13 +33,12 @@ class User extends Component {
         </div>
         <UserModal
           userDetails={user}
-          showModal={this.props.showModal}
+          showModal={props.showModal}
           modalState={user.show}
-          closeModal={this.props.closeModal}
+          closeModal={props.closeModal}
         />
       </div>
-    );
-  }
+    )
 }
 
 export default User;

@@ -6,9 +6,8 @@ import ModalBody from "react-bootstrap/ModalBody";
 import ModalHeader from "react-bootstrap/ModalHeader";
 import ModalFooter from "react-bootstrap/ModalFooter";
 
-class UserModal extends Component {
-  render() {
-    let {
+const UserModal = ({ userDetails, closeModal}) => {
+    const {
       show,
       firstName,
       lastName,
@@ -16,26 +15,28 @@ class UserModal extends Component {
       address,
       email,
       profileImage,
-    } = this.props.userDetails;
-    let state = address["state"];
-    let city = address["city"];
-    let country = address["country"];
-    let streetAddress = address["streetAddress"];
+    } = userDetails;
+    
+    const state = address["state"];
+    const city = address["city"];
+    const country = address["country"];
+    const streetAddress = address["streetAddress"];
 
     if (!show) {
       return null;
     }
+
     return (
       <Modal
         show={show}
-        onHide={this.props.closeModal.bind(this, this.props.userDetails.id)}
+        onHide={() => closeModal(userDetails.id)}
       >
         <ModalHeader>
           <div className="profileImage">
             <img
               src={profileImage}
               alt="profileImage"
-              className="rounded-circle"
+              className="rounded-circle w-50 mx-auto d-block"
             />
           </div>
         </ModalHeader>
@@ -63,17 +64,13 @@ class UserModal extends Component {
         </ModalBody>
         <ModalFooter>
           <button
-            onClick={this.props.closeModal.bind(
-              this,
-              this.props.userDetails.id
-            )}
+            onClick={() => closeModal(userDetails.id)}
           >
             Close
           </button>
         </ModalFooter>
       </Modal>
     );
-  }
 }
 
 export default UserModal;

@@ -1,0 +1,15 @@
+[
+    {
+        "id": "1",
+        "firstName": "John",
+        "lastName": "Doe",
+        "email": "johnDoe@mail.com",
+        "profileImage": "../images/profile-images.webp",
+        "address": {
+            "state": "WA",
+            "city": "Malaga",
+            "country": "Australia",
+            "streetAddress": "5 Carson Road"
+        }
+    }
+]
